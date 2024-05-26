@@ -1,7 +1,37 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+:root {
+  margin: 0rem;
+  padding: 0rem;
   text-align: center;
 }
 
+/* App.css */
+#root {
+  display: grid;
+  grid-template-rows: auto 2fr auto;
+  height: 100vh;
+  background-color: red;
+}
+
+nav ul{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+header {
+  background-color: #f8b400;
+  padding: 20px;
+  text-align: center;
+}
+
+main {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+
+footer {
+  background-color: #f8b400;
+  padding: 20px;
+  text-align: center;
+}

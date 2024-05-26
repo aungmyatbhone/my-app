@@ -3,13 +3,13 @@ function Nav() {
         <nav>
             <ul>
                 <li>
-                    <a href="http://"></a>
+                    <a href="http://">Home</a>
                 </li>
                 <li>
-                    <a href="http://"></a>
+                    <a href="http://">Home</a>
                 </li>
                 <li>
-                    <a href="http://"></a>
+                    <a href="http://">Home</a>
                 </li>
             </ul>
         </nav>
