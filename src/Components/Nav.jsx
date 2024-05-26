@@ -2,10 +2,15 @@ function Nav() {
     return(
         <nav>
             <ul>
-                <li>Home</li>
-                <li>Orders</li>
-                <li>Book a table</li>
-                <li>Contact</li>
+                <li>
+                    <a href="http://"></a>
+                </li>
+                <li>
+                    <a href="http://"></a>
+                </li>
+                <li>
+                    <a href="http://"></a>
+                </li>
             </ul>
         </nav>
     )
