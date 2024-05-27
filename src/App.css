@@ -1,15 +1,36 @@
-:root {
-  margin: 0rem;
-  padding: 0rem;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Montserrat:wght@200;300;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+
+body{
+  font-family: 'Montserrat', sans-serif;
+}
 /* App.css */
 #root {
   display: grid;
-  grid-template-rows: auto 2fr auto;
-  height: 100vh;
+  grid-template-rows: auto 1fr auto auto;
+  min-height: 100vh;
+  gap: 3rem;
   background-color: red;
+  --main-transiton: .2s ease-in;
+  --primary-color: #f8b400;
+  --main-black: rgb(38, 38, 38);
+  --secondary-black: rgb(97, 72, 72);
+}
+
+nav{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+nav .logoimg{
+  width: 10%;
 }
 
 nav ul{
@@ -18,20 +39,93 @@ nav ul{
   gap: 1rem;
 }
 
+nav ul li{
+  list-style: none;
+}
+nav ul li a{
+  text-decoration: none;
+  color: #fff;
+}
+
 header {
-  background-color: #f8b400;
-  padding: 20px;
+  background-color: var(--primary-color);
+  padding: 10px;
   text-align: center;
 }
 
-main {
-  background-color: #f1f1f1;
-  padding: 20px;
+main section:first-child{
+  background-color: #929292;
   text-align: center;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+
+.heroimg{
+  width: 50%;
+}
+
+main section:first-child div:first-child{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 1rem;
+  background-color: green;
+}
+
+main section h1,p{
+  text-align: left;
+  color: var(--main-black);
+}
+
+main section p {
+  color: var(--secondary-black);
+  font-size: .8rem;
+}
+
+main button {
+  background-color: var(--primary-color);
+  border: none;
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius:2rem;
+}
+
+#specialSection{
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 2rem;
+  padding: 1rem;
+
+}
+
+#orderBtn{
+  background: none;
+  border: none;
+  text-decoration: underline;
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: .5rem 0rem;
+  cursor: pointer;
+}
+
+#orderBtn:active, #orderBtn:hover{
+  scale: 0.95;
+  transition: var(--main-transiton);
 }
 
 footer {
-  background-color: #f8b400;
-  padding: 20px;
+  background-color: var(--primary-color);
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  main {
+
+  }
+
+  section {
+  }
 }
