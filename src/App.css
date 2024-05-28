@@ -16,11 +16,10 @@ body{
   display: grid;
   grid-template-rows: auto 1fr auto auto;
   min-height: 100vh;
-  background-color: red;
   --main-transiton: .2s ease-in;
   --primary-color: #f8b400;
   --main-black: rgb(38, 38, 38);
-  --secondary-black: rgb(97, 72, 72);
+  --secondary-black: rgb(49, 49, 49);
   --main-white: #fff;
   --secondary-white: #eee;
   --third-white: #d7d7d7;
@@ -33,7 +32,7 @@ nav{
 }
 
 nav .logoimg{
-  width: 10%;
+  width: 10vw;
 }
 
 nav ul{
@@ -93,12 +92,13 @@ main section p {
   font-size: .8rem;
 }
 
-main button {
+#reserveBtn {
   background-color: var(--primary-color);
   border: none;
   color: #fff;
   padding: 1rem 2rem;
   border-radius:2rem;
+  cursor: pointer;
 }
 
 /* special  */
@@ -110,6 +110,16 @@ main button {
   gap: 2rem;
   padding: 1rem;
 
+}
+
+.specials h3{
+  margin-top: .6rem;
+}
+
+.specials p{
+  font-size: .9rem;
+  margin: .2rem 0rem;
+  line-height: 1.2;
 }
 
 #orderBtn{
@@ -138,9 +148,10 @@ main button {
 }
 
 #testimony article{
-  padding: 1rem;
+  padding: 1.4rem;
   border-radius: .5rem;
   background-color: var(--main-white);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 #testimony p{
   color: var(--secondary-black);
@@ -162,18 +173,69 @@ footer {
 
 footer div p{
   margin-bottom: .5rem;
+  font-weight: 600;
 }
 
 footer div ul li{
-  margin: .2rem 0rem;
+  cursor: pointer;
+  margin: .8rem 0rem;
   font-size: 0.8rem;
   color: var(--secondary-black);
   list-style: none;
 }
 
+
+/* RESERVE */
+#form{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+  gap: 1rem;
+  background-color: var(--main-white);
+  padding: 3rem;
+}
+
+#form h3{
+  color: var(--main-black);
+  font-size: 2rem;
+}
+
+#form .inputs{
+  margin-top: .2rem;
+  width: 100%;
+  border-radius: .2rem;
+  border:none;
+  outline: none;
+  padding: .8rem;
+  background-color: var(--secondary-white);
+}
+
+#form .inputs:focus, .inputs.active{
+  outline: .6px solid var(--primary-color);
+}
+
+form input[type='submit'] {
+  cursor: pointer;
+  background-color: var(--primary-color);
+  border-radius: 5rem;
+  padding: 1rem 3rem;
+  border: none;
+  color: var(--main-white);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+form input[type='submit']:active {
+  scale: .95;
+  transition: var(--main-transiton);
+}
+
+
+/* MEDIUM */
 @media (min-width: 600px) {
   nav .logoimg{
-    width: 5%;
+    width: 5vw;
   }
   main section{
     flex-direction: row;
@@ -196,5 +258,10 @@ footer div ul li{
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: none;
     gap: 2rem;
+  }
+
+  #form{
+    width: 40%;
+    padding: 3rem;
   }
 }

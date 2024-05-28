@@ -22,7 +22,7 @@ function Footer() {
             <div>
                 <p>Social Medias</p>
                 <ul>
-                    <li>Feacbook</li>
+                    <li>Facebook</li>
                     <li>Tiktok</li>
                     <li>Instagram</li>
                 </ul>
