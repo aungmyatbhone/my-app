@@ -10,17 +10,20 @@
 body{
   font-family: 'Montserrat', sans-serif;
 }
+
 /* App.css */
 #root {
   display: grid;
   grid-template-rows: auto 1fr auto auto;
   min-height: 100vh;
-  gap: 3rem;
   background-color: red;
   --main-transiton: .2s ease-in;
   --primary-color: #f8b400;
   --main-black: rgb(38, 38, 38);
   --secondary-black: rgb(97, 72, 72);
+  --main-white: #fff;
+  --secondary-white: #eee;
+  --third-white: #d7d7d7;
 }
 
 nav{
@@ -41,7 +44,9 @@ nav ul{
 
 nav ul li{
   list-style: none;
+  flex: 1 1 auto;
 }
+
 nav ul li a{
   text-decoration: none;
   color: #fff;
@@ -53,19 +58,23 @@ header {
   text-align: center;
 }
 
-main section:first-child{
+
+/* MAIN */
+main section{
+  padding: 1rem;
   background-color: #929292;
   text-align: center;
   display: flex;
   flex-direction: column-reverse;
+  margin-bottom: 2rem;
 }
 
 
 .heroimg{
-  width: 50%;
+  width: 100%;
 }
 
-main section:first-child div:first-child{
+main section div:first-child{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -92,7 +101,10 @@ main button {
   border-radius:2rem;
 }
 
+/* special  */
+
 #specialSection{
+  margin-bottom: 2rem;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   gap: 2rem;
@@ -111,21 +123,78 @@ main button {
   cursor: pointer;
 }
 
-#orderBtn:active, #orderBtn:hover{
-  scale: 0.95;
+#orderBtn:active{
+  scale: 0.9;
   transition: var(--main-transiton);
 }
 
-footer {
-  background-color: var(--primary-color);
-  text-align: center;
+/* Testimony */
+#testimony{
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
 }
 
-@media (min-width: 768px) {
-  main {
+#testimony article{
+  padding: 1rem;
+  border-radius: .5rem;
+  background-color: var(--main-white);
+}
+#testimony p{
+  color: var(--secondary-black);
+  font-size: .8rem;
+}
+#testimony small{
+  font-weight: bold;
+  color: var(--main-black);
+}
 
+/* footer */
+footer {
+  padding: 3rem 1rem;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+footer div p{
+  margin-bottom: .5rem;
+}
+
+footer div ul li{
+  margin: .2rem 0rem;
+  font-size: 0.8rem;
+  color: var(--secondary-black);
+  list-style: none;
+}
+
+@media (min-width: 600px) {
+  nav .logoimg{
+    width: 5%;
+  }
+  main section{
+    flex-direction: row;
   }
 
-  section {
+  main section div{
+    width: 50%;
+  }
+
+  .heroimg{
+    width: 60%;
+  }
+
+  #specialSection{
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: none;
+    gap: 3rem;
+  }
+  #testimony{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: none;
+    gap: 2rem;
   }
 }
