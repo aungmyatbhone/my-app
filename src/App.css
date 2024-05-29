@@ -188,6 +188,7 @@ footer div ul li{
 /* RESERVE */
 #form{
   display: flex;
+  background-color: red;
   flex-direction: column;
   width: 90%;
   margin: 0 auto;

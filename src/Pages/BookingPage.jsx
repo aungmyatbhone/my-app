@@ -1,8 +1,8 @@
 // src/Pages/BookingPage.jsx
 import BookingForm from '../Components/BookingForm';
 
-function BookingPage({ availableTimes, dispatch }) {
-  return <BookingForm availableTimes={availableTimes} dispatch={dispatch} />;
+function BookingPage({ availableTimes, updateTimes ,  submitForm}) {
+  return <BookingForm availableTimes={availableTimes} updateTimes={updateTimes}   submitForm={submitForm}/>;
 }
 
 export default BookingPage;

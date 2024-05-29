@@ -26,3 +26,28 @@ describe('updateTimes function', () => {
         expect(updatedTimes).toEqual(state);
     });
 });
+
+
+// Example using Jest
+
+// Assuming you have imported updateTimes from your file
+
+// Mock the fetchAPI function
+jest.mock('./api', () => ({
+    fetchAPI: jest.fn(),
+  }));
+  
+  describe('updateTimes', () => {
+    it('should dispatch the correct action with the selected date', () => {
+      // Mock dispatch function
+      const dispatch = jest.fn();
+  
+      // Call updateTimes with a selected date
+      const selectedDate = '2024-06-01'; // Example date
+      updateTimes(selectedDate, dispatch);
+  
+      // Assert that dispatch was called with the correct action and date
+      expect(dispatch).toHaveBeenCalledWith({ type: 'UPDATE_TIMES', date: selectedDate });
+    });
+  });
+  

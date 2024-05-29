@@ -1,90 +1,71 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 
-const BookingForm = ({ availableTimes, updateTimes }) => {
-  // Define state variables for each field in the form
+const BookingForm = ({ availableTimes, updateTimes, submitForm }) => {
   const [date, setDate] = useState('');
-  const [time, setTime] = useState('17:00'); // Default time
-  const [numGuests, setNumGuests] = useState(1); // Default number of guests
+  const [time, setTime] = useState('17:00');
+  const [numGuests, setNumGuests] = useState(1);
   const [occasion, setOccasion] = useState('');
+  const [dateValid, setDateValid] = useState(false);
+  const [timeValid, setTimeValid] = useState(false);
+  const [guestsValid, setGuestsValid] = useState(false);
 
-  // Handle change in date field
   const handleDateChange = (e) => {
     const selectedDate = e.target.value;
     setDate(selectedDate);
-    // Call the updateTimes function from props to update available times based on selected date
-    updateTimes(selectedDate);
+    const isValid = selectedDate !== '';
+    setDateValid(isValid);
   };
 
+  const handleTimeChange = (e) => {
+    const selectedTime = e.target.value;
+    setTime(selectedTime);
+    const isValid = selectedTime !== '';
+    setTimeValid(isValid);
+  };
 
-  // Handle form submission
+  const handleGuestsChange = (e) => {
+    const guests = parseInt(e.target.value);
+    setNumGuests(guests);
+    const isValid = guests >= 1; // Assuming minimum guests required is 1
+    setGuestsValid(isValid);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // You can perform form validation or submit the data to an API here
-    console.log('Form submitted:', { date, time, numGuests, occasion });
+    if (dateValid && timeValid && guestsValid) {
+      const formData = { date, time, numGuests, occasion };
+      submitForm(formData);
+    }
   };
 
   return (
-    <form id='form' style={{ display: 'grid', maxWidth: '200px', gap: '20px' }} onSubmit={handleSubmit}>
+    <form id="form" onSubmit={handleSubmit} aria-label="Booking form">
       <label htmlFor="res-date">Choose date
-      <br />
-      <input className="inputs"  onChange={handleDateChange} type="date" id="res-date" value={date} onChange={(e) => setDate(e.target.value)} />
+        <br />
+        <input className="inputs" type="date" id="res-date" value={date} onChange={handleDateChange} aria-label="Choose date" />
       </label>
-      
 
       <label htmlFor="res-time">Choose time
-      <br />
-      <select className="inputs" id="res-time" value={time} onChange={(e) => setTime(e.target.value)}>
-        {availableTimes.map((t, index) => (
-          <option key={index} value={t}>{t}</option>
-        ))}
-      </select>
+        <br />
+        <select className="inputs" id="res-time" value={time} onChange={handleTimeChange} aria-label="Choose time">
+          {availableTimes.map((t, index) => (
+            <option key={index} value={t}>{t}</option>
+          ))}
+        </select>
       </label>
 
       <label htmlFor="num-guests">Number of guests
-      <br />
-      <input className="inputs" type="number" id="num-guests" value={numGuests} onChange={(e) => setNumGuests(parseInt(e.target.value))} />
+        <br />
+        <input onChange={handleGuestsChange} className="inputs" min={1} max={10} type="number" id="num-guests" value={numGuests} aria-label="Number of guests" />
       </label>
 
       <label htmlFor="occasion">Occasion<small><i>(optional)</i></small>
-      <br />
-      <input className="inputs" type="text" id="occasion" value={occasion} onChange={(e) => setOccasion(e.target.value)} />
-      </label> 
-      <input type="submit" value="Book now" />
+        <br />
+        <input className="inputs" type="text" id="occasion" value={occasion} onChange={(e) => setOccasion(e.target.value)} aria-label="Occasion (optional)" />
+      </label>
+      <input type="submit" value="Book now" aria-label="Submit booking" />
     </form>
   );
 };
 
 export default BookingForm;
-
-
-
-
-
-    // <form id="form">
-    //   <div>
-    //     <p>Join us for a memorable meal.</p>
-    //     <h3> Reserve your spot now!</h3>
-    //   </div>
-    //   <label htmlFor="res-date">Date <br />
-    //     <input className="inputs" type="date" id="res-date" onChange={handleDateChange} />
-    //   </label>
-    //   <label htmlFor="res-time">Time <br />
-    //     <select className="inputs" id="res-time">
-    //       {availableTimes.map(time => (
-    //         <option key={time} value={time}>{time}</option>
-    //       ))}
-    //     </select>
-    //   </label>
-    //   <label htmlFor="guests">How many people?
-    //     <br />
-    //     <input className="inputs" type="number" placeholder="1" min="1" max="10" id="guests" />
-    //   </label>
-    //   <label htmlFor="occasion">Occasion <small><i>(optional)</i></small><br />
-    //     <select className="inputs" id="occasion">
-    //       <option>None</option>
-    //       <option>Birthday</option>
-    //       <option>Anniversary</option>
-    //     </select>
-    //   </label>
-    //   <input type="submit" value="Book now" />
-    // </form>
